@@ -1,22 +1,11 @@
 public class Display {
-    
     private double sizeInches;
     private String resolution;
-    private boolean onOff = false;
+    protected boolean isOn = false;
 
-    public Display (double sizeInches, String resolution) {
+    public Display(double sizeInches, String resolution) {
         this.sizeInches = sizeInches;
-        this.resolution = this.resolution;
-    }
-
-    public String turnOn() {
-        onOff = true;
-        return "Display turned on. " + sizeInches + "-inch, " + resolution;
-    }
-
-    public String turnOff() {
-        onOff = false;
-        return "Display turned off";
+        this.resolution = resolution;
     }
 
     public double getSizeInches() {
@@ -27,8 +16,18 @@ public class Display {
         return resolution;
     }
 
+    public String turnOn() {
+        this.isOn = true;
+        return "Display turned on. " + this.sizeInches + "-inch, " + this.resolution;
+    }
+
+    public String turnOff() {
+        this.isOn = false;
+        return "Display turned off.";
+    }
+
     @Override
     public String toString() {
-        return "Display: " + sizeInches + "inches, " + resolution;
+        return "Display: " + this.sizeInches + " inches, Resolution: " + this.resolution;
     }
 }

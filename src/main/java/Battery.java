@@ -6,12 +6,12 @@ public class Battery {
         this.capacityMAh = capacityMAh;
     }
 
-    public boolean isCharged() {
-        return isCharged;
+    public int getCapacityMAh() {
+        return capacityMAh;
     }
 
-    public int getCapacityMAh() {
-        return this.capacityMAh;
+    public boolean isCharged() {
+        return isCharged;
     }
 
     public void charge() {
@@ -20,6 +20,6 @@ public class Battery {
 
     @Override
     public String toString() {
-        return "Battery: " + this.capacityMAh + " mAh, Charged: " + isCharged;
+        return "Battery: " + this.capacityMAh + "mAh, Charged: " + this.isCharged;
     }
 }

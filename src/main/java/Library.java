@@ -1,48 +1,27 @@
 import java.util.ArrayList;
+
 public class Library {
-
-    private ArrayList<Book> collection;
-
-    public Library() {
-        collection = new ArrayList<>();
-    }
+    private ArrayList<Book> books;
 
     public void addBook(Book book) {
-        collection.add(book);
+        books.add(book);
     }
 
     public void removeBook(String ISBN) {
-        for (int i = 0; i < this.collection.size(); i++) {
-            if (this.collection.get(i).getISBN().equals(ISBN)) {
-                this.collection.remove(i);
-                i = this.collection.size() + 1;
-            }
-
-        }
+        books.removeIf(book -> book.getISBN().equals(ISBN));
     }
 
     public Book[] searchBook(String title) {
-        ArrayList<Book> x = new ArrayList<>();
-        for (int i = 0; i < collection.size(); i++) {
-            if (collection.get(i).getTitle().equalsIgnoreCase(title)) {
-                x.add(collection.get(i));
+        ArrayList<Book> results = new ArrayList<>();
+        for (Book book : books) {
+            if (book.getTitle().equalsIgnoreCase(title)) {
+                results.add(book);
             }
         }
-        Book[] y = new Book[x.size()];
-        for (int i = 0; i < x.size(); i++) {
-            y[i] = x.get(i);
-        }
-        return y;
+        return results.toArray(new Book[0]);
     }
+
     public Book[] displayBooks() {
-        return collection.toArray(new Book[0]);
+        return books.toArray(new Book[0]);
     }
-
-
-
-
-
-
-
-
 }
